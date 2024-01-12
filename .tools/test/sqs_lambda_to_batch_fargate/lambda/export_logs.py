@@ -91,7 +91,7 @@ def get_and_put_logs(job_detail):
             s3_client.put_object(
                 Body=log_file,
                 Bucket=bucket,
-                Key=f"latest/{os.environ['LANGUAGE_NAME']}.log",
+                Key=f"latest/{job_detail['status']}-{os.environ['LANGUAGE_NAME']}.log",
             )
             # Put logs to cross-account bucket ARCHIVE
             s3_client.put_object(
